@@ -11,7 +11,7 @@ export const getUrl = async (req, res) => {
 		if(!data) return res.sendStatus(404);
 		return res.send(`<script>window.location.href="${data.originalUrl}";</script>`)
 	} catch (error) {
-		return res.sendStatus(500).send(error);
+		return res.send(error);
 	}
 };
 
