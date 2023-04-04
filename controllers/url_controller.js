@@ -9,7 +9,7 @@ export const getUrl = async (req, res) => {
 		if (!token) return res.sendStatus(400);
 		const [data] = await urlModel.find({ token });
 		if(!data) return res.sendStatus(404);
-		return res.send(`<script>window.open(${data.originalUrl});</script>`)
+		return res.redirect(data.originalUrl);
 	} catch (error) {
 		return res.send(error);
 	}
